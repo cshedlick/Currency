@@ -1,9 +1,7 @@
 class Currency
-  attr_reader :amount, :code
-
-  def initialize(amount:, code:)
-    @amount = amount
-    @code = code
+  attr_accessor :amount, :code
+  def initialize params = {}
+    params.each { |key, value| send "#{key}=", value }
   end
 
   def == (other)
@@ -25,5 +23,4 @@ class Currency
       "DifferentCurrencyCodeError"
     end
   end
-
 end
