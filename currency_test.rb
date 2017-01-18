@@ -3,17 +3,17 @@ require 'minitest/autorun'
 require './currency.rb'
 
 class CurrencyTest < Minitest::Test
-  def test_currency_creation ## need to start with test_ then can call it whatever you want
+  def test_currency_creation
     Currency.new(amount: 34, code: 'USD')
   end
 
   def test_equal_currencies
     a = Currency.new(amount: 34, code: 'USD')
     b = Currency.new(amount: 34, code: 'USD')
-    assert a == b ## assert means that it needs to be true to pass, otherwise fails
+    assert a == b
 
     c = Currency.new(amount: 34, code: 'EUR')
-    refute a == c ## refute is opposite of assert
+    refute a == c
 
     d = Currency.new(amount: 100, code: 'USD')
     refute a == d
@@ -24,6 +24,10 @@ class CurrencyTest < Minitest::Test
     b = Currency.new(amount: 34, code: 'USD')
 
     assert a+b == 68
-    assert a-b == 0  
+    assert a-b == 0
+
+    c = Currency.new(amount: 34, code: 'EUR')
+    assert a+c == "DifferentCurrencyCodeError"
+    assert a-c == "DifferentCurrencyCodeError"
   end
 end

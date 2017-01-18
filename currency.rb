@@ -1,7 +1,7 @@
 class Currency
-  attr_reader :amount, :code # note :s at the beginning here
+  attr_reader :amount, :code
 
-  def initialize(amount:, code:) # when sending in parameters with names do :s after
+  def initialize(amount:, code:)
     @amount = amount
     @code = code
   end
@@ -11,13 +11,19 @@ class Currency
   end
 
   def +(other)
-    @code == other.code
-    @amount + other.amount
+    if @code == other.code
+      @amount + other.amount
+    else
+      "DifferentCurrencyCodeError"
+    end
   end
 
   def -(other)
-    @code == other.code
-    @amount - other.amount
+    if @code == other.code
+      @amount - other.amount
+    else
+      "DifferentCurrencyCodeError"
+    end
   end
 
 end
