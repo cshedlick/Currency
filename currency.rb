@@ -15,4 +15,9 @@ class Currency
     @amount + other.amount
   end
 
+  def -(other)
+    @code == other.code
+    @amount - other.amount
+  end
+
 end

@@ -24,5 +24,6 @@ class CurrencyTest < Minitest::Test
     b = Currency.new(amount: 34, code: 'USD')
 
     assert a+b == 68
+    assert a-b == 0  
   end
 end
