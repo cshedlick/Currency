@@ -9,4 +9,10 @@ class Currency
   def == (other)
     @amount == other.amount && @code == other.code
   end
+
+  def +(other)
+    @code == other.code
+    @amount + other.amount
+  end
+
 end

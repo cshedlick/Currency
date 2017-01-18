@@ -15,7 +15,14 @@ class CurrencyTest < Minitest::Test
     c = Currency.new(amount: 34, code: 'EUR')
     refute a == c ## refute is opposite of assert
 
-    e = Currency.new(amount: 100, code: 'USD')
-    refute a == e
+    d = Currency.new(amount: 100, code: 'USD')
+    refute a == d
+  end
+
+  def test_mathematical_operators
+    a = Currency.new(amount: 34, code: 'USD')
+    b = Currency.new(amount: 34, code: 'USD')
+
+    assert a+b == 68
   end
 end
