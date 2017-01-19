@@ -14,7 +14,12 @@ class CurrencyConverter
 
 
     def convert(currency_obj, code_to_convert)
-      Currency.new(amount: currency_obj * self.get_hash[currency_obj.code][code_to_convert], code: code_to_convert)
+      available_codes = ['USD', 'EUR', 'GBP', 'INR', 'JPY']
+      if available_codes.include? currency_obj.code
+        Currency.new(amount: currency_obj * self.get_hash[currency_obj.code][code_to_convert], code: code_to_convert)
+      else
+        puts "UnknownCurrencyCodeError"
+      end
     end
   end
 end
