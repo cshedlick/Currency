@@ -45,4 +45,8 @@ class Currency
       "DifferentCurrencyCodeError"
     end
   end
+
+  def *(other)
+     (@amount*other).round(2)
+   end
 end

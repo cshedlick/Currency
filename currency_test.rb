@@ -29,6 +29,9 @@ class CurrencyTest < Minitest::Test
     c = Currency.new(amount: 34, code: 'EUR')
     assert a+c == "DifferentCurrencyCodeError"
     assert a-c == "DifferentCurrencyCodeError"
+
+    assert a*2 == 68
+    assert a*2.2 == 74.8
   end
 
   def test_currency_creation_with_symbols
