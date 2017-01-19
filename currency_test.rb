@@ -1,6 +1,7 @@
 require 'minitest/pride'
 require 'minitest/autorun'
 require './currency.rb'
+require './currency_converter.rb'
 
 class CurrencyTest < Minitest::Test
   def test_currency_creation
@@ -54,5 +55,9 @@ class CurrencyTest < Minitest::Test
     e = Currency.new amount: '29.01¥'
     assert e.amount == 29.01
     assert e.code == 'JPY'
+  end
+
+  def test_currency_converter
+    assert CurrencyConverter.convert(Currency.new(amount: 1, code: "USD"), "EUR") == Currency.new(amount: 0.94, code: "EUR")
   end
 end

@@ -1,7 +1,3 @@
-def is_string? string
- false if Float(string) rescue true
-end
-
 class Currency
   attr_accessor :amount, :code
   def initialize(options = {})
@@ -23,7 +19,9 @@ class Currency
         code = 'INR'
       end
     end
+
     @code = code
+
   end
 
   def == (other)
@@ -47,6 +45,7 @@ class Currency
   end
 
   def *(other)
-     (@amount*other).round(2)
-   end
+    (@amount*other).round(2)
+  end
+
 end
